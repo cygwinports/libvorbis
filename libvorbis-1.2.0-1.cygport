@@ -1,0 +1,23 @@
+DESCRIPTION="Xiph Vorbis audio codec library"
+HOMEPAGE="http://www.vorbis.com/"
+SRC_URI="http://downloads.xiph.org/releases/${PN#lib}/${P}.tar.gz"
+
+libs="    vorbis vorbisenc vorbisfile"
+abis=(- - 0      2         3)
+n=0
+
+PKG_NAMES="${PN} ${PN}-devel"
+PKG_HINTS="setup devel"
+PKG_CONTENTS[$((n++))]='usr/share/doc/'
+PKG_CONTENTS[$((n++))]='usr/include/ usr/lib/ usr/share/aclocal/'
+
+for l in ${libs}
+do
+	PKG_NAMES+=" lib${l}${abis[$n]}"
+	PKG_HINTS+=" ${l#lib}"
+	PKG_CONTENTS[$n]="usr/bin/cyg${l}-${abis[$n]}.dll"
+	let n++
+done
+unset n
+
+DIFF_EXCLUDES="Makefile"
