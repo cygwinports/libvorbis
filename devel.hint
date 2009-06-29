@@ -1,5 +1,5 @@
 category: Audio
-requires: cygwin libogg-devel libvorbis0 libvorbisenc2 libvorbisfile3
+requires: libogg-devel libvorbis0 libvorbisenc2 libvorbisfile3
 external-source: libvorbis
 sdesc: "Xiph.org Vorbis audio codec (development)"
 ldesc: "Vorbis is a general purpose audio and music encoding format 
